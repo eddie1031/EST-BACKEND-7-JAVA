@@ -31,7 +31,7 @@ public class LoopStatement1 {
         while (c < 10)
             c *= 2;
         System.out.printf("%d\n",c);
-        
+
 
     }
 
