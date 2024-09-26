@@ -17,7 +17,7 @@ public class TypeConversion {
         double d = 1.3;
 
         System.out.println(a + (int) b); // 11
-        
+
     }
 
 }
