@@ -1,4 +1,4 @@
-package oop.ins;
+package oop.base.ins;
 
 public class 붕어빵_테스트 {
 

@@ -1,4 +1,4 @@
-package oop.ins;
+package oop.base.ins;
 
 public class InstanceBluePrint {
 

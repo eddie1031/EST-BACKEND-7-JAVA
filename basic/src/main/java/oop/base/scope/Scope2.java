@@ -1,14 +1,9 @@
-package oop.scope;
+package oop.base.scope;
 
-public class Scope4 {
+public class Scope2 {
 
     public int a = 10;
     public static int b = 20;
-
-    public int c = a + b;
-    public static int d = 20;
-
-    public static int e = b + d;
 
     public static void main(String[] args) {
 
@@ -18,9 +13,11 @@ public class Scope4 {
         System.out.println(b);
     }
 
-    void test2() {
+    void instanceMethod1() {
+        // a ? -> o
         System.out.println(a);
-        System.out.println(e);
+        // b ? -> o
+        System.out.println(b);
     }
 
 }
