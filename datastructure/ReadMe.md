@@ -41,7 +41,7 @@ public interface Supplier<T> {
 - 특징 : 매개변수 없이 값을 생산(Supply)하여 반환합니다.
 
 
-#### Supplier<T>
+#### Function<T>
 
 ```java
 @FunctionalInterface
@@ -52,7 +52,7 @@ public interface Function<T, R> {
 
 - 특징 : `일정 타입<T>`의 매개변수 값을 받아서 기능을 수행한 후 `다른 타입<R>`의 값을 반환합니다.
 
-#### Supplier<T>
+#### Predicate<T>
 
 ```java
 @FunctionalInterface
