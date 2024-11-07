@@ -1,5 +1,12 @@
 package collection.arrayList;
 
+import collection.stream.ListStream;
+import collection.stream.Stream;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.function.Consumer;
+
 public class ArrayList<E> implements List<E>{
 
     /**
@@ -197,5 +204,34 @@ public class ArrayList<E> implements List<E>{
 
     }
 
+    @Override
+    public Stream<E> stream() {
+        return new ListStream<>(this);
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator<E> {
+
+        private int curIdx = 0;
+
+        @Override
+        public boolean hasNext() {
+            return curIdx < elements.length;
+        }
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public E next() {
+            if ( !hasNext() ) {
+                throw new NoSuchElementException();
+            }
+            return (E) elements[curIdx++];
+        }
+
+    }
 
 }

@@ -1,6 +1,10 @@
 package collection.linkedList;
 
 import collection.arrayList.List;
+import collection.stream.ListStream;
+import collection.stream.Stream;
+
+import java.util.Iterator;
 
 // Doubly Linked List를 기반으로 구현
 public class LinkedList<E> implements List<E> {
@@ -340,5 +344,33 @@ public class LinkedList<E> implements List<E> {
         }
 
     }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new LinkedListIterator();
+    }
+
+    @Override
+    public Stream<E> stream() {
+        return new ListStream<>(this);
+    }
+
+    private class LinkedListIterator implements Iterator<E> {
+
+        private Node<E> cur = head;
+
+        @Override
+        public boolean hasNext() {
+            return cur != null;
+        }
+
+        @Override
+        public E next() {
+            E data = cur.data;
+            cur = cur.next;
+            return data;
+        }
+    }
+
 
 }

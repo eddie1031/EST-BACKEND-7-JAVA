@@ -1,6 +1,11 @@
 package collection.stack;
 
 import collection.Collection;
+import collection.stream.StackStream;
+import collection.stream.Stream;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Stack<E> implements Collection<E> {
 
@@ -84,6 +89,36 @@ public class Stack<E> implements Collection<E> {
             System.out.print(element + " ");
         }
         System.out.println();
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return null;
+    }
+
+    @Override
+    public Stream<E> stream() {
+        return new StackStream<>(this);
+    }
+
+    private class StackIterator implements Iterator<E> {
+
+        private int curIdx = elements.length - 1;
+
+        @Override
+        public boolean hasNext() {
+            return curIdx >= 0;
+        }
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public E next() {
+            if ( !hasNext() ) {
+                throw new NoSuchElementException();
+            }
+            return (E) elements[curIdx--];
+        }
+
     }
 
 }

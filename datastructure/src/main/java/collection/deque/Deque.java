@@ -2,7 +2,10 @@ package collection.deque;
 
 import collection.Collection;
 import collection.linkedList.LinkedList;
+import collection.stream.QueueStream;
+import collection.stream.Stream;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Deque<E> implements Collection<E> {
@@ -139,5 +142,13 @@ public class Deque<E> implements Collection<E> {
         elements.traverse();
     }
 
+    @Override
+    public Iterator<E> iterator() {
+        return elements.iterator();
+    }
 
+    @Override
+    public Stream<E> stream() {
+        return new QueueStream<>(this);
+    }
 }
