@@ -17,6 +17,14 @@ public class Request {
         return parser.isValidUri();
     }
 
+    public String getControllerCode() {
+        return parser.getControllerCode();
+    }
+
+    public String getTarget() {
+        return parser.getTarget();
+    }
+
     public <T> T getValue(String key, Class<T> cls) {
 
         Object value = parameters.get(key);

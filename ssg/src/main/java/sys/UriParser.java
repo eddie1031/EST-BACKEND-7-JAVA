@@ -6,7 +6,6 @@ import lombok.Getter;
 import java.util.HashMap;
 import java.util.Map;
 
-
 @Getter(AccessLevel.PROTECTED)
 public class UriParser {
 
@@ -44,7 +43,7 @@ public class UriParser {
         }
 
         controllerCode = uriFront[1].trim();
-        target = uriSplit[2].trim();
+        target = uriFront[2].trim();
 
         return uri;
 
